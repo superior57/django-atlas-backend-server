@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Users List</title>
+	</head>
+	
+	<body>
+		<h1>User List</h1>
+		
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10%"><B>S.NO</B></td>
+				<td width="20%"><B>First Name</B></td>
+				<td width="20%"><B>Last Name</B></td>
+				<td width="20%"><B>Phnone</B></td>
+				<td><B>Action</B></td>
+			</tr>
+			
+			<tr><td colspan="5" height="7px"></td></tr>
+			
+			{% for user in users %}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>{{ user.first_name }}</td>
+				<td>{{ user.last_name }}</td>
+				<td>{{ user.phone }}</td>
+				<td><a href="/edituser?id={{ user.user_id }}">Edit</a>&nbsp;&nbsp;<a href="/deleteuser?id={{user.user_id }}">Delete</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		
+	</body>
+</html>

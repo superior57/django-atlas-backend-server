@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome Django | Simple CRUD Application | Edit User {{ user.first_name }}</title>
+  </head>
+  <body>
+    <h1>Simple CRUD | Edit User {{ user.first_name }}</h1>
+
+    <a href="/home">Home</a>
+	<br/>
+	<br/>	
+	<form action="/edituser/" method="post" name="adduserform" id="adduserform">
+		{% csrf_token %}
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<input type="hidden" name="user_id" id="user_id" value="{{ user.user_id }} "/>
+			<tr>
+				<td width="10%">First name</td>
+				<td><input type="text" name="first_name" id="first_name" style="width:190px" value="{{ user.first_name }}"/></td>
+			</tr>
+			
+			<tr><td colspan="2" height="10px"></td></tr>
+			
+			<tr>
+				<td width="10%">Last name</td>
+				<td><input type="text" name="last_name" id="last_name" style="width:190px" value="{{ user.last_name }}"/></td>
+			</tr>
+			
+			<tr><td colspan="2" height="10px"></td></tr>
+		
+			<tr>
+				<td width="10%">Phone</td>
+				<td><input type="text" name="phone" id="phone" style="width:190px" value="{{ user.phone }}"/></td>
+			</tr>
+			
+			<tr><td colspan="2" height="10px"></td></tr>
+		
+			<tr>
+				<td></td>
+				<td><input type="SUBMIT" name="btnSubmit" id="btnSubmit" value="Add User"/></td>
+			</tr>
+			
+		
+		</table>
+	</form>
+	
+  </body>
+</html>
